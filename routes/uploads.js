@@ -9,13 +9,13 @@ const storage = multer.memoryStorage()
 const upload = multer({storage: storage})
 const request = require("request")
 
-router.get('/uploads', (req, res, next) => {
+router.get('/upload', (req, res, next) => {
   return res.json({status: "endpoint exists"})
 })
 
-router.post('/uploads', upload.single('file'), async function (req, res, next) {
+router.post('/upload', upload.single('file'), async function (req, res, next) {
   // demo server route for multipart data uploads
-  console.log('FILE', req.file);
+  console.log('FILE', req.file, req.body.case);
   return res.json({status: "success"})
 })
 
