@@ -13,7 +13,13 @@ router.get('/upload', (req, res, next) => {
   return res.json({status: "endpoint exists"})
 })
 
-router.post('/upload', upload.single('file'), async function (req, res, next) {
+router.post('/upload/documents', upload.single('file'), async function (req, res, next) {
+  // demo server route for multipart data uploads
+  console.log('FILE', req.file, req.body.caseId);
+  return res.json({message: "success"})
+})
+
+router.post('/upload/profile-image', upload.single('file'), async function (req, res, next) {
   // demo server route for multipart data uploads
   console.log('FILE', req.file, req.body.caseId);
   return res.json({message: "success"})
